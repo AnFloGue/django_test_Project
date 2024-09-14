@@ -6,6 +6,8 @@ class Teacher(models.Model):
         ('F', 'Female'),
     ]
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, blank=False, null=False)
     age = models.IntegerField()
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
+    email = models.EmailField(max_length=254, unique=True, blank=False, null=False)
+    phone = models.CharField(max_length=15, blank=True, null=True)

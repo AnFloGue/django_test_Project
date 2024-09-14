@@ -1,6 +1,7 @@
 from django import forms
+from .models import Teacher
 
-class TeacherForm(forms.Form):
-    name = forms.CharField(max_length=100, label='Name')
-    age = forms.IntegerField(label='Age')
-    gender = forms.ChoiceField(choices=[('M', 'Male'), ('F', 'Female')], label='Gender')
+class TeacherForm(forms.ModelForm):
+    class Meta:
+        model = Teacher
+        fields = '__all__'  

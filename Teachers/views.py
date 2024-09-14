@@ -1,11 +1,21 @@
-from django.views.generic.edit import FormView
 from .forms import TeacherForm
+from .models import Teacher
+from django.shortcuts import render, redirect
 
-class TeacherFormView(FormView):
-    template_name = 'teacher_form.html'
-    form_class = TeacherForm
-    success_url = '/success/'
+def register(request):
+    if request.method == 'POST':
+        form = TeacherForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = TeacherForm()
+    return render(request, 'register.html', {'form': form})
 
-    def form_valid(self, form):
-        # Process the form data here
-        return super().form_valid(form)
+def success(request):
+    teachers = Teacher.objects.all()
+    
+    return render(request, 'success.html', {'teachers': teachers})
+
+def index(request):
+    return render(request, 'index.html')

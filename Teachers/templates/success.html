@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+    <h1>Registration Successful</h1>
+    <p>The teacher has been successfully registered.</p>
+    <h2>List of Registered Teachers</h2>
+    <ul>
+        {% for teacher in teachers %}
+            <li>
+                Name: {{ teacher.name }}<br>
+                Age: {{ teacher.age }}<br>
+                Gender: {{ teacher.gender }}<br>
+                Email: {{ teacher.email }}<br>
+                Phone: {{ teacher.phone }}       <br>
+                <br>
+            </li>        {% endfor %}
+    </ul>
+</body>
+</html>
