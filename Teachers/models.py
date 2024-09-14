@@ -11,3 +11,4 @@ class Teacher(models.Model):
     gender = models.CharField(choices=GENDER_CHOICES, max_length=1)
     email = models.EmailField(max_length=254, unique=True, blank=False, null=False)
     phone = models.CharField(max_length=15, blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
