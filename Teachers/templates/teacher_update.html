@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Teacher</title>
+</head>
+<body>
+    <h1>Update Teacher</h1>
+    <div>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <h3 style="color: black;">{{ field.label_tag }}</h3>
+
+            {{ field }}<br>
+            {{ field.errors }}<br>
+        {% endfor %}
+    <input type="submit" value="Update" style="color: black; font-weight: bold; font-size: 1.17em;">
+    </form>
+    </div>
+</body>
+</html>
